@@ -28,69 +28,12 @@
 """Gromacs portable run input TPR format parser
 ============================================
 
-The :mod:`~MDAnalysis.topology.TPRParser` module allows reading of a
-Gromacs_ portable run input file (a `TPR file`_). Because
-the file format of the TPR file is changing rapidly, not all versions
-are currently supported. The known working versions and the
-approximate Gromacs release numbers are listed in the table
-:ref:`TPR format versions <TPR-format-table>`.
-
-.. _`TPR-format-table`:
-
-.. table:: TPR format versions and generations read by :func:`MDAnalysis.topology.TPRParser.parse`.
-
-   ========== ============== ==================== =====
-   TPX format TPX generation Gromacs release      read
-   ========== ============== ==================== =====
-   ??         ??             3.3, 3.3.1           no
-
-   58         17             4.0, 4.0.2, 4.0.3,   yes
-                             4.0.4, 4.0.5, 4.0.6,
-                             4.0.7
-
-   73         23             4.5.0, 4.5.1, 4.5.2, yes
-                             4.5.3, 4.5.4, 4.5.5
-
-   83         24             4.6, 4.6.1           yes
-
-   100        26             5.0, 5.0.1, 5.0.2,   yes
-                             5.0.3,5.0.4, 5.0.5
-
-   103        26             5.1                  yes
-
-   110        26             2016                 yes
-   ========== ============== ==================== =====
-
-For further discussion and notes see `Issue 2`_. Please *open a new issue* in
-the `Issue Tracker`_ when a new or different TPR file format version should be
-supported.
-
-Bonded interactions available in Gromacs are described in table 5.5 of the
-`Gromacs manual`_. The following ones are used to build the topology (see
-`Issue 463`_):
-
-* bonds: regular bonds (type 1), G96 bonds (type 2), Morse (type 3),
-  cubic bonds (type 4), connections (type 5), harmonic potentials (type 6),
-  FENE bonds (type 7), restraint potentials (type 10),
-  tabulated potential with exclusion/connection (type 8),
-  tabulated potential without exclusion/connection (type 9), constraints with
-  exclusion/connection (type 1), constraints without exclusion/connection (type
-  2)
-* angles: regular angles (type 1), G96 angles (type 2), cross bond-bond
-  (type3), cross-bond-angle (type 4), Urey-Bradley (type 5), quartic angles
-  (type 6), restricted bending potential (type 10), tabulated angles (type 8)
-* dihedrals: proper dihedrals (type 1 and type 9), Ryckaert-Bellemans dihedrals
-  (type 3), Fourier dihedrals (type 5), restricted dihedrals (type 10),
-  combined bending-torsion potentials (type 11), tabulated dihedral (type 8)
-* impropers: improper dihedrals (type 2), periodic improper dihedrals (type 4)
-
-
 Classes
 -------
 
 .. autoclass:: TPRParser
    :members:
-   :inherited-members:
+
 
 See Also
 --------
